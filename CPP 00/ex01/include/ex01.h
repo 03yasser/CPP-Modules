@@ -14,6 +14,8 @@
 #define EX01_H
 
 #include <iostream>
+#include <stdlib.h>
+#include <sstream>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 

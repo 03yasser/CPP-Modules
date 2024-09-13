@@ -53,9 +53,10 @@ void	PhoneBook::ADD()
 
 void	PhoneBook::SEARCH()
 {
-	Contact		contact;
-	std::string	tmp;
-	std::string input;
+	Contact				contact;
+	std::string			tmp;
+	std::string 		input;
+	std::stringstream	ss;
 	int			index = -1;
 
 	if (size == 0)
@@ -67,7 +68,9 @@ void	PhoneBook::SEARCH()
 	for(int i = 0; i < size; i++)
 	{
 		contact = arr[i];
-		write_string(std::to_string(i));
+		ss << i;
+		write_string(ss.str());
+		ss.str("");
 		std::cout << "|";
 		tmp = contact.get_FirstName();
 		write_string(tmp);
@@ -82,12 +85,12 @@ void	PhoneBook::SEARCH()
 	ft_putstr("Enter the index of the entry to display : ", 0);
 	if (!std::getline(std::cin, input))
 		exit (0);
-	index = std::atoi(input.c_str());
+	index = atoi(input.c_str());
 	while (index >= 8 || index < 0)
 	{
 		ft_putstr("wrong index or out of range.", 1);
 		std::cin >> input;
-		index = std::atoi(input.c_str());
+		index = atoi(input.c_str());
 	}
 	contact = arr[index];
 	contact.print_contact();

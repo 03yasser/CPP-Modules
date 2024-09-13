@@ -6,7 +6,7 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/12 11:19:43 by yboutsli          #+#    #+#              #
-#    Updated: 2024/09/12 12:23:11 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/09/12 17:36:42 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	$(CC) $(CPPFLAGS) $^ -o $@
 	
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp Account.hpp
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CPPFLAGS)  -c $< -o $@
 

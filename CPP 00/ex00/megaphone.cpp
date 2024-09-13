@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.h                                             :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 10:24:26 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/10 11:52:46 by yboutsli         ###   ########.fr       */
+/*   Created: 2024/09/09 18:35:10 by yboutsli          #+#    #+#             */
+/*   Updated: 2024/09/13 10:25:17 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_H
-#define EX01_H
-
 #include <iostream>
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include <cctype>
 
-#endif
+int	main(int ac, char **av)
+{
+	std::string	tmp;
+
+	if (ac == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (0);
+	}
+	for(int i = 1; i < ac; i++)
+	{
+		tmp = av[i];
+		for(size_t j = 0; j < tmp.length(); j++)
+		{
+			if (std::islower(tmp.at(j)))
+				tmp.at(j) = std::toupper(tmp.at(j));
+		}
+		std::cout << tmp;
+	}
+	std::cout << std::endl;
+	return (0);
+}

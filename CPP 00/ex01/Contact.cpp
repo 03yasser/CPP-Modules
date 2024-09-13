@@ -6,20 +6,11 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:19:13 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/10 17:21:02 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/13 11:12:08 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-Contact::Contact()
-{
-	FirstName = "";
-	LastName = "";
-	NickName = "";
-	PhoneNumber = "";
-	DarkestSecret = "";
-}
 
 void	Contact::set_FirstName(std::string FN)
 {
@@ -68,4 +59,13 @@ std::string Contact::get_PhoneNumber()
 std::string Contact::get_DarkestSecret()
 {
     return DarkestSecret;
+}
+
+void Contact::print_contact()
+{
+    ft_putstr(("First Name : " + FirstName), 1);
+    ft_putstr(("Last Name : " + LastName), 1);
+    ft_putstr(("Nick Name : " + NickName), 1);
+    ft_putstr(("Phone Number : " + PhoneNumber), 1);
+    ft_putstr(("Darkest Secret : " + DarkestSecret), 1);
 }

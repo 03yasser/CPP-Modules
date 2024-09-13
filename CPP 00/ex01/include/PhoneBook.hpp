@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:15:49 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/12 10:00:58 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/13 11:19:46 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class PhoneBook
 		int		oldest_contact;
 	public:
 		PhoneBook();
+		void		ADD();
+		void		SEARCH();
 		Contact*	get_next_contact();
-		Contact		get_contact(int index);
-		int			get_size();
-		int			get_oldest();
+		int			get_oldest_index();
 		
 };
 #endif

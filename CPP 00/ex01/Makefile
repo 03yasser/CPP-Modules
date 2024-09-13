@@ -6,7 +6,7 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/09 18:17:40 by yboutsli          #+#    #+#              #
-#    Updated: 2024/09/12 11:16:11 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/09/12 17:39:24 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	$(CC) $(CPPFLAGS) $^ -o $@
 	
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp include/ex01.h
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CPPFLAGS) -I $(INC_DIR) -c $< -o $@
 

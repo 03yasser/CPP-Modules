@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:13:34 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/19 11:24:40 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:30:12 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ Weapon::Weapon(std::string type)
 	return ;
 }
 
-
 const std::string Weapon::getType()
 {
 	return (type);
 }
-
 
 void	Weapon::setType(std::string type)
 {

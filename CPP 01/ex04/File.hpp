@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.h                                             :+:      :+:    :+:   */
+/*   File.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 10:24:26 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/13 12:44:26 by yboutsli         ###   ########.fr       */
+/*   Created: 2024/09/19 11:49:30 by yboutsli          #+#    #+#             */
+/*   Updated: 2024/09/20 09:32:01 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_H
-#define EX01_H
+#ifndef FILE_HPP
+#define FILE_HPP
 
+#include <fstream>
 #include <iostream>
-#include <stdlib.h>
-#include <sstream>
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
 
-void	    ft_putstr(std::string str, int new_line);
-void	    write_string(std::string str);
-std::string	ft_input(std::string str);
+class	File
+{
+	private:
+		std::string		_File_name;
+		std::string		_S1;
+		std::string		_S2;
+		std::ifstream	ifile;
+		std::ofstream	ofile;
+	public:
+		File(std::string File_name, std::string S1, std::string S2);
+		bool	oc_files();
+		void	close_files();
+		bool	replace_content();
+};
+
 #endif

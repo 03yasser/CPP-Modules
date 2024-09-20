@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.h                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 10:24:26 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/13 12:44:26 by yboutsli         ###   ########.fr       */
+/*   Created: 2024/09/20 09:55:34 by yboutsli          #+#    #+#             */
+/*   Updated: 2024/09/20 12:10:17 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_H
-#define EX01_H
+#include "Harl.hpp"
 
-#include <iostream>
-#include <stdlib.h>
-#include <sstream>
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+int main() 
+{
+    Harl harlInstance;
 
-void	    ft_putstr(std::string str, int new_line);
-void	    write_string(std::string str);
-std::string	ft_input(std::string str);
-#endif
+    harlInstance.complain("DEBUG");
+    harlInstance.complain("INFO");
+    harlInstance.complain("WARNING");
+    harlInstance.complain("ERROR");
+
+    return 0;
+}

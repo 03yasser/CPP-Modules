@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:19:33 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/12 17:25:57 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/20 17:47:21 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,10 @@ bool Account::makeWithdrawal(int withdrawal)
         _amount -= withdrawal;
         _totalAmount -= withdrawal;
         ss << "amount:" << _amount << ";";
+        _nbWithdrawals++;
         ss << "nb_withdrawals:" << _nbWithdrawals << std::endl;
         
         _totalNbWithdrawals++;
-        _nbWithdrawals++;
         std::cout << ss.str();
         return true;
     } 
@@ -158,14 +158,14 @@ void	Account::displayStatus() const
 
 void Account::_displayTimestamp()
 {
-	std::time_t now = std::time(0);
-	std::tm *localTime = std::localtime(&now);
-	std::cout << "[" << localTime->tm_year + 1900
-	<< std::setw(2) << std::setfill('0') << localTime->tm_mon
-	<< std::setw(2) << std::setfill('0') << localTime->tm_mday
-	<< "_"
-	<< std::setw(2) << std::setfill('0') << localTime->tm_hour
-	<< std::setw(2) << std::setfill('0') << localTime->tm_min
-	<< std::setw(2) << std::setfill('0') << localTime->tm_sec
-	<< "] ";
+	// std::time_t now = std::time(0);
+	// std::tm *localTime = std::localtime(&now);
+	// std::cout << "[" << localTime->tm_year + 1900
+	// << std::setw(2) << std::setfill('0') << localTime->tm_mon
+	// << std::setw(2) << std::setfill('0') << localTime->tm_mday
+	// << "_"
+	// << std::setw(2) << std::setfill('0') << localTime->tm_hour
+	// << std::setw(2) << std::setfill('0') << localTime->tm_min
+	// << std::setw(2) << std::setfill('0') << localTime->tm_sec
+	// << "] ";
 }

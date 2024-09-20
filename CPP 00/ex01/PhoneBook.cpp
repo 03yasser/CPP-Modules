@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:15:45 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/13 12:09:32 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/20 18:19:05 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,54 @@ void	PhoneBook::ADD()
 	contact->set_DarkestSecret(input);
 }
 
+bool is_number(const std::string s) 
+{
+	if (s.empty())
+		return false; 
+	for (std::size_t i = 0; i < s.size(); i++) 
+	{
+		if (!std::isdigit(s.at(i)))
+			return false;
+	}
+	return true;
+}
+
+static long	res(long n, long x, char c, int sign)
+{
+	n = (x * 10) + (c - 48);
+	if (n < x && sign == 1)
+		return (-1);
+	else if (n < x && sign == -1)
+		return (0);
+	return (n);
+}
+
+int	ft_atoi(const std::string str)
+{
+	int				sign;
+	std::size_t		i;
+	long			n;
+	long			x;
+
+	i = 0;
+	sign = 1;
+	n = 0;
+	x = 0;
+	while (i < str.size() && std::isspace(str.at(i)))
+		i++;
+	if (i < str.size() && (str.at(i) == '-' || str.at(i) == '+'))
+	{
+		if (str.at(i++) == '-')
+			sign *= -1;
+	}
+	while (i < str.size() && std::isdigit(str.at(i)))
+	{
+		n = res(x, n, str.at(i), sign);
+		i++;
+	}
+	return (n * sign);
+}
+
 void	PhoneBook::SEARCH()
 {
 	Contact				contact;
@@ -85,12 +133,20 @@ void	PhoneBook::SEARCH()
 	ft_putstr("Enter the index of the entry to display : ", 0);
 	if (!std::getline(std::cin, input))
 		exit (0);
-	index = atoi(input.c_str());
-	while (index >= 8 || index < 0)
+	if (is_number(input))
+		index = ft_atoi(input);
+	else
+		index = -1;
+	while (index >= 8 || index < 0 || index >= size)
 	{
 		ft_putstr("wrong index or out of range.", 1);
-		std::cin >> input;
-		index = atoi(input.c_str());
+		ft_putstr("Enter the index of the entry to display : ", 0);
+		if (!std::getline(std::cin, input))
+			exit (0);
+			if (is_number(input))
+				index = ft_atoi(input);
+			else
+				index = -1;
 	}
 	contact = arr[index];
 	contact.print_contact();

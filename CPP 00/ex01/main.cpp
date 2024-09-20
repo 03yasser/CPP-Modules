@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 11:40:11 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/13 12:02:24 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/20 17:56:54 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	main()
 	PhoneBook		pb;
 	std::string		input;
 	
-	// add_first_eight_contacts(pb);
+	add_first_eight_contacts(pb);
 	while (1) 
 	{
 		std::cout << "Enter one of the 3 commands ADD SEARCH EXIT." << std::endl;

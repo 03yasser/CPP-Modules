@@ -6,12 +6,12 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/09 18:17:40 by yboutsli          #+#    #+#              #
-#    Updated: 2024/09/12 17:39:24 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/09/20 17:58:16 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98  -fsanitize=address
 
 OBJ_DIR		=	obj/
 INC_DIR		=	include/

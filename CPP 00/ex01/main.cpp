@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/ex01.h"
+#include "ex01.h"
 
 void add_first_eight_contacts(PhoneBook &pb) 
 {
@@ -83,7 +83,7 @@ int	main()
 	PhoneBook		pb;
 	std::string		input;
 	
-	add_first_eight_contacts(pb);
+	// add_first_eight_contacts(pb);
 	while (1) 
 	{
 		std::cout << "Enter one of the 3 commands ADD SEARCH EXIT." << std::endl;

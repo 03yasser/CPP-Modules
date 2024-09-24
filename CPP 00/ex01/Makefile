@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98  -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR		=	obj/
 INC_DIR		=	include/
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	$(CC) $(CPPFLAGS) $^ -o $@
 	
-$(OBJ_DIR)%.o: %.cpp include/ex01.h
+$(OBJ_DIR)%.o: %.cpp ex01.h PhoneBook.hpp Contact.hpp
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CPPFLAGS) -I $(INC_DIR) -c $< -o $@
 

@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:49:22 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/20 09:30:02 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:00:24 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,19 @@ void	File::close_files()
 	ofile.close();
 }
 
+bool	File::copy_file()
+{
+	char	ch;
+
+	if (!ifile.is_open())
+	{
+		std::cout << "The file is not opened." << std::endl;
+		return (false);
+	}
+	while (ifile.get(ch))
+		ofile.put(ch);
+	return (true);
+}
 
 bool	File::replace_content()
 {
@@ -49,6 +62,8 @@ bool	File::replace_content()
 		std::cout << "The file is not opened." << std::endl;
 		return (false);
 	}
+	if (_S1.empty() || (_S1.empty() && _S2.empty()))
+		return(copy_file());
 	while (std::getline(ifile, line))
 	{
 		std::size_t	index = 0;
@@ -62,7 +77,9 @@ bool	File::replace_content()
 			index += _S1.size();
 			line = result;
 		}
-		ofile << line << std::endl;
+		ofile << line;
+		if (!ifile.eof())
+            ofile << '\n';
 	}
 	return (true);
 }

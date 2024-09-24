@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:49:30 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/20 09:32:01 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:51:28 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	File
 		bool	oc_files();
 		void	close_files();
 		bool	replace_content();
+		bool	copy_file();
 };
 
 #endif

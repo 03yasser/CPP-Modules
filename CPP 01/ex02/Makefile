@@ -6,7 +6,7 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 10:48:39 by yboutsli          #+#    #+#              #
-#    Updated: 2024/09/16 12:57:12 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/09/24 18:48:25 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 OBJ_DIR		=	obj/
-# INC_DIR		=	include/
 
 SOURCE_FILES = main.cpp 
 OBJECT_FILES = $(addprefix $(OBJ_DIR),$(SOURCE_FILES:.cpp=.o))

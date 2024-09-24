@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:48:45 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/16 11:08:37 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:46:11 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ int	main()
 {
 	int n = 10;
     Zombie	*zombie;
-	zombie = zombieHorde(10, "yasser");
+	zombie = zombieHorde(n, "yasser");
+	if (!zombie)
+	{
+		std::cout << "ERROR" << std::endl;
+		return (1);
+	}
 	for (int i = 0; i < n; i++)
 		zombie[i].announce();
 	delete [] zombie;

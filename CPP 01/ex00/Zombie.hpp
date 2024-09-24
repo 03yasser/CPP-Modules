@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 09:25:08 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/16 10:44:17 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:47:17 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ class Zombie
 		~Zombie();
 		void	announce( void );
 };
-
 #endif

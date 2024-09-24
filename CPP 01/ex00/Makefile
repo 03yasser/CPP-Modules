@@ -6,7 +6,7 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 10:23:12 by yboutsli          #+#    #+#              #
-#    Updated: 2024/09/16 10:45:57 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/09/24 18:47:04 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 OBJ_DIR		=	obj/
-# INC_DIR		=	include/
 
 SOURCE_FILES = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJECT_FILES = $(addprefix $(OBJ_DIR),$(SOURCE_FILES:.cpp=.o))
@@ -28,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	$(CC) $(CPPFLAGS) $^ -o $@
 	
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp Zombie.hpp
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 

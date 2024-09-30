@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:49:22 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/09/24 19:00:24 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/09/30 11:54:09 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,18 @@ bool	File::replace_content()
 		return(copy_file());
 	while (std::getline(ifile, line))
 	{
+		if (!ifile.eof())
+			line += "\n";
 		std::size_t	index = 0;
 		std::string	result;
-		while ((index = line.find(_S1, index)) != line.npos)
+		while ((index = line.find(_S1, 0)) != std::string::npos)
 		{
-			result.clear();
-			result += line.substr(0, index);
+			result += line.substr(0, index); 
 			result += _S2;
-			result += line.substr(index + _S1.size(), line.size());
-			index += _S1.size();
-			line = result;
+			line = line.substr(index + _S1.size());
 		}
-		ofile << line;
-		if (!ifile.eof())
-            ofile << '\n';
+		result += line;
+		ofile << result;
 	}
-	return (true);
+return (true);
 }

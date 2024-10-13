@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 15:14:57 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/12 16:58:52 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:00:20 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 int main()
 {
-    Point a(1.04f, 1.32f);
-    Point b(2.06f, 3.3f);
-    Point c(3.44f, 1.4f);
-    Point point(2.01123f, 1.66786f);
+    Point a(2.8f, 5.62f);
+    Point b(5.44f, 2.02f);
+    Point c(1, 2);
+    Point point(2.26f, 2.94f);
 
     bool result = bsp(a, b, c, point);
 

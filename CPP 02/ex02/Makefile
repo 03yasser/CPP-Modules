@@ -5,10 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/03 20:07:42 by yboutsli          #+#    #+#              #
-#    Updated: 2024/10/12 16:43:12 by yboutsli         ###   ########.fr        #
+#    Created: 2024/10/05 17:25:16 by yboutsli          #+#    #+#              #
+#    Updated: 2024/10/12 16:43:18 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
 
 
 
@@ -26,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	$(CC) $(CPPFLAGS) $^ -o $(NAME)
 	
-object_files/%.o: %.cpp Fixed.hpp 
+object_files/%.o: %.cpp Fixed.hpp
 	mkdir -p object_files
 	$(CC) $(CPPFLAGS) -c $< -o $@
 

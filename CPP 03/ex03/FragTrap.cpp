@@ -6,11 +6,17 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 12:16:45 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:44:23 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:50:39 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap()
+{
+	name = "Deffault";
+	std::cout << "FragTrap " << name << " has been constructed." << std::endl;
+}
 
 FragTrap::FragTrap(std::string _name)
 {

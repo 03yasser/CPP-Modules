@@ -6,11 +6,17 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 10:24:27 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:41:43 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:03:12 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap()
+{
+	name = "deffault";
+	std::cout << "ScavTrap " << name << " has been constructed." << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string _name)
 {
@@ -38,7 +44,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 {
 	if (this != &other)
 	{
-		std::cout << "ScavTrap assignment operator called, assigning values from " << other.name << std::endl;
+		std::cout << "ScavTrap Copy assignment operator called, assigning values from " << other.name << std::endl;
 		this->name = other.name;
 		this->hit_point = other.attack_damage;
 		this->energy_point = other.energy_point;

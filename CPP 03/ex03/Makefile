@@ -6,7 +6,7 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/13 07:42:32 by yboutsli          #+#    #+#              #
-#    Updated: 2024/10/15 16:07:31 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/10/17 12:42:20 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJECT_FILES = $(addprefix object_files/,$(SOURCE_FILES:.cpp=.o))
 
 RM = rm -rf
 
-NAME = FragTrap
+NAME = DiamondTrap
 
 all: $(NAME)
 

@@ -6,13 +6,13 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:07:45 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/18 15:49:31 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:49:48 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name"), FragTrap(_name), ScavTrap(_name), name(_name)
+DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name"), FragTrap(), ScavTrap(), name(_name)
 {
     this->hit_point = FragTrap::hit_point;
     this->energy_point = ScavTrap::energy_point;
@@ -39,7 +39,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other)
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
-        if (this != &other)
+    if (this != &other)
 	{
 		std::cout << "DiamondTrap Copy assignment operator called, creating a copy of " << other.name << std::endl;
 		this->name = other.name;
@@ -48,11 +48,12 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 		this->attack_damage = other.attack_damage;
 		this->max_hp = other.max_hp;
 	}
+	return (*this);
 }
 
 void DiamondTrap::attack(const std::string& target)
 {
-    FragTrap::attack(target);
+    ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI()

@@ -6,15 +6,23 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 10:24:27 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:41:43 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:47:20 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string _name)
+ScavTrap::ScavTrap()
 {
-	this->name = _name;
+	hit_point = 100;
+	energy_point = 50;
+	attack_damage = 20;
+	max_hp = 100;
+	std::cout << "ScavTrap " << name << " has been constructed." << std::endl;		
+}
+
+ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
+{
 	hit_point = 100;
 	energy_point = 50;
 	attack_damage = 20;

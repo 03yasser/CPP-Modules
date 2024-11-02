@@ -6,20 +6,25 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 07:42:24 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:45:14 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:50:11 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() : name("deffault"), hit_point(10), energy_point(10), attack_damage(0)
+{
+	std::cout << "ClapTrap " << name << " has been constructed." << std::endl;	
+}
 
 ClapTrap::ClapTrap(std::string _name) : name(_name) , hit_point(10), energy_point(10), attack_damage(0)
 {
 	std::cout << "ClapTrap " << name << " has been constructed." << std::endl;
 }
+
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << name << "has been destructed." << std::endl;	
+	std::cout << "ClapTrap " << name << " has been destructed." << std::endl;	
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -40,7 +45,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 	{
 		std::cout << "ClapTrap assignment operator called, assigning values from " << other.name << std::endl;
 		this->name = other.name;
-		this->hit_point = other.attack_damage;
+		this->hit_point = other.hit_point;
 		this->energy_point = other.energy_point;
 		this->attack_damage = other.attack_damage;
 	}

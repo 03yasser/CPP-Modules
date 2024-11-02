@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 07:42:24 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:45:03 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:51:13 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 	}
 	return (*this);
 }
-
 
 void	ClapTrap::attack(const std::string& target)
 {

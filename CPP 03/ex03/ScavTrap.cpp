@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 10:24:27 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/17 13:03:12 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:46:48 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 ScavTrap::ScavTrap()
 {
-	name = "deffault";
-	std::cout << "ScavTrap " << name << " has been constructed." << std::endl;
+	hit_point = 100;
+	energy_point = 50;
+	attack_damage = 20;
+	max_hp = 100;
+	std::cout << "ScavTrap " << name << " has been constructed." << std::endl;		
 }
 
-ScavTrap::ScavTrap(std::string _name)
+ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 {
-	this->name = _name;
 	hit_point = 100;
 	energy_point = 50;
 	attack_damage = 20;

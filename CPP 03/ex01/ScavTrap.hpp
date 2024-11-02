@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 10:24:30 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 11:25:47 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:52:35 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class ScavTrap : public ClapTrap
 	private:
 		
 	public:
+		ScavTrap();
 		ScavTrap(std::string _name);
 		~ScavTrap();
 		ScavTrap(const ScavTrap &other);

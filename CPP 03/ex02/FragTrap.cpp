@@ -6,15 +6,23 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 12:16:45 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:44:23 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:44:15 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string _name)
+FragTrap::FragTrap() 
 {
-	this->name = _name;
+	hit_point = 100;
+	max_hp = 100;
+	energy_point = 100;
+	attack_damage = 30;
+	std::cout << "FragTrap " << name << " has been constructed." << std::endl;		
+}
+
+FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
+{
 	hit_point = 100;
 	max_hp = 100;
 	energy_point = 100;

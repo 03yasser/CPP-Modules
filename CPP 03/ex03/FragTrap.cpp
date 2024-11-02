@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 12:16:45 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/17 12:50:39 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:51:51 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 FragTrap::FragTrap()
 {
-	name = "Deffault";
-	std::cout << "FragTrap " << name << " has been constructed." << std::endl;
+	hit_point = 100;
+	max_hp = 100;
+	energy_point = 100;
+	attack_damage = 30;
+	std::cout << "FragTrap " << name << " has been constructed." << std::endl;	
 }
 
-FragTrap::FragTrap(std::string _name)
+FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
 {
-	this->name = _name;
 	hit_point = 100;
 	max_hp = 100;
 	energy_point = 100;

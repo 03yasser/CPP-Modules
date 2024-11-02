@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 07:42:35 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 11:00:41 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:49:03 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ClapTrap
 		unsigned int			energy_point;
 		unsigned int			attack_damage;
 	public:
+		ClapTrap();
 		ClapTrap(std::string _name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap &other);

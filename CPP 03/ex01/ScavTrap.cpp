@@ -6,20 +6,28 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 10:24:27 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/13 12:44:56 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:39:25 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string _name)
+ScavTrap::ScavTrap() 
 {
-	this->name = _name;
+	hit_point = 100;
+	energy_point = 50;
+	attack_damage = 20;
+	std::cout << "ScavTrap " << name << " has been constructed." << std::endl;		
+}
+
+ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
+{
 	hit_point = 100;
 	energy_point = 50;
 	attack_damage = 20;
 	std::cout << "ScavTrap " << name << " has been constructed." << std::endl;	
 }
+
 ScavTrap::ScavTrap(const ScavTrap &other)
 {
 	if (this != &other)
@@ -57,7 +65,7 @@ void ScavTrap::guardGate()
 	std::cout << "ScavTrap " << name << " is now in Gatekeeper mode." << std::endl;
 }
 
-void	ScavTrap::attack(const std::string& target) 
+void	ScavTrap::attack(const std::string& target)
 {
 	if (this->hit_point > 0 && this->energy_point > 0)
 	{

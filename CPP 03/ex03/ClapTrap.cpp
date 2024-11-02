@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 07:42:24 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/10/17 13:03:18 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:42:45 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ ClapTrap::ClapTrap(std::string _name) : name(_name) , hit_point(10), energy_poin
 {
 	std::cout << "ClapTrap " << name << " has been constructed." << std::endl;
 }
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap " << name << "has been destructed." << std::endl;	

@@ -6,7 +6,7 @@
 #    By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/13 07:42:32 by yboutsli          #+#    #+#              #
-#    Updated: 2024/10/13 10:58:17 by yboutsli         ###   ########.fr        #
+#    Updated: 2024/10/29 17:03:28 by yboutsli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	$(CC) $(CPPFLAGS) $^ -o $(NAME)
 	
-object_files/%.o: %.cpp ClapTrap.hpp ScavTrap.hpp
+object_files/%.o: %.cpp ClapTrap.hpp 
 	mkdir -p object_files
 	$(CC) $(CPPFLAGS) -c $< -o $@
 

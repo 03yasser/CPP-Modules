@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/15 21:14:59 by yboutsli          #+#    #+#             */
+/*   Updated: 2024/11/17 23:52:41 by yboutsli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat(void)
@@ -15,7 +27,7 @@ Cat::Cat(const Cat &copy)
 
 Cat::~Cat(void)
 {
-	std::cout << "Catis destroyed" << std::endl;
+	std::cout << "Cat is destroyed" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat &other)

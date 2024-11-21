@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:15:02 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/15 21:15:02 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:07:44 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Animal
 		Animal(void);
 		Animal(std::string _type);
 		Animal(Animal const &copy);
-		virtual ~Animal(void);
-		Animal& operator=(const Animal &other);
-		virtual void 		makeSound();
+		virtual 		~Animal(void);
+		Animal& 		operator=(const Animal &other);
+		virtual void 	makeSound() const;
 		std::string&	getType();
 };
 

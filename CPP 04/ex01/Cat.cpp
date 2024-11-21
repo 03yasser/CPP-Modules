@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:14:59 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/18 23:58:24 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:09:52 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Cat& Cat::operator=(const Cat &other)
 	return (*this);
 }
 
-void	Cat::makeSound()
+void	Cat::makeSound() const
 {
 	std::cout << "Meow Meow Meow!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:12:37 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/19 00:30:12 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:11:24 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ int main()
     for (int i = 0; i < size; ++i)
         delete animals[i];
     return 0;
+    
 }

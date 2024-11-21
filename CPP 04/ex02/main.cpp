@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:12:37 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/19 00:49:11 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:07:22 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void f(){
 int main() 
 {
 	// atexit(f);
+    // Animal an;
+    
     Dog a;
     a.makeSound();
     return 0;

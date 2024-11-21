@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:14:51 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/15 21:14:51 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:08:14 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Dog::Dog(void)
 
 Dog::Dog(const Dog &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	if (this != &copy)
 		*this = copy;
 }
@@ -32,13 +32,13 @@ Dog::~Dog(void)
 
 Dog& Dog::operator=(const Dog &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Dog copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->type = other.type;
 	return (*this);
 }
 
-void	Dog::makeSound()
+void	Dog::makeSound() const
 {
 	std::cout << "How how how!" << std::endl;
 }

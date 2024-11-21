@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:19:27 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/18 23:58:38 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:55:36 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ Brain::Brain(void)
 
 Brain::Brain(const Brain &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	std::cout << "Brain copy constructor called" << std::endl;
+	if (this != &copy)
+		*this = copy;
 }
 
 Brain::~Brain(void)

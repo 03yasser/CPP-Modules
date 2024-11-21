@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:14:51 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/19 00:08:07 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:10:38 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Dog& Dog::operator=(const Dog &other)
 	return (*this);
 }
 
-void	Dog::makeSound()
+void	Dog::makeSound() const
 {
 	std::cout << "How how how!" << std::endl;
 }

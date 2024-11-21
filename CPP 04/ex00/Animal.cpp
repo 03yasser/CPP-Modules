@@ -6,7 +6,7 @@
 /*   By: yboutsli <yboutsli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:15:05 by yboutsli          #+#    #+#             */
-/*   Updated: 2024/11/15 21:15:05 by yboutsli         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:08:09 by yboutsli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Animal& Animal::operator=(const Animal &other)
 	return (*this);
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "Animal sound" << std::endl;
 }

@@ -28,7 +28,6 @@ Form& Form::operator=(const Form &other)
 	return (*this);
 }
 
-
 std::ostream& operator<< (std::ostream& out, const Form &f)
 {
 	out << "Form Name: " << f.get_name() << "\n"
@@ -68,3 +67,13 @@ void	Form::beSigned(Bureaucrat &b)
 		throw GradeTooLowException();
 }
 
+void Form::execute(const Bureaucrat& executor) const
+{
+    if (!is_signed) {
+        throw FormNotSignedException();
+    }
+    if (executor.getGrade() > grade_execute) {
+        throw GradeTooLowException();
+    }
+    executeAction();
+}

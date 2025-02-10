@@ -36,3 +36,8 @@ void RobotomyRequestForm::executeAction() const
 	else
 		std::cout << "Robotomy failed for " << target << std::endl;
 }
+
+Form* RobotomyRequestForm::clone(std::string& target)
+{
+	return (new RobotomyRequestForm(target));
+}

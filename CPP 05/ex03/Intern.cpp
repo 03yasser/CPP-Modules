@@ -24,19 +24,22 @@ Intern& Intern::operator=(const Intern &other)
 // Methods
 Form *Intern::makeForm(std::string name, std::string target)
 {
-	const std::string formNames[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-	*Form (*forms[]) = { new RobotomyRequestForm(target),
-						 new PresidentialPardonForm(target),
-						 new ShrubberyCreationForm(target)};
-	for (int i = 0; i < 3; i++)
-	{
-		if (name == formNames[i])
-		{
-			std::cout << "Intern creates " << name << std::endl;
-			return (forms[i]);
-		}
-	}
-	std::cout << "Intern can't create " << name << std::endl;
-	return (NULL);
-}
+    const std::string formNames[] = { "robotomy request","presidential pardon", "shrubbery creation" };
+    Form* (*formCreators[])(std::string&) = {
+        &RobotomyRequestForm::clone,
+        &PresidentialPardonForm::clone,
+        &ShrubberyCreationForm::clone 
+    };
 
+    for (int i = 0; i < 3; i++)
+    {
+        if (name == formNames[i])
+        {
+            std::cout << "Intern creates " << name << std::endl;
+            return formCreators[i](target); // Calls the correct function
+        }
+    }
+
+    std::cout << "Intern can't create " << name << std::endl;
+    return NULL;
+}

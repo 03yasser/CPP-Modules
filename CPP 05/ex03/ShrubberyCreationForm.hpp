@@ -17,6 +17,7 @@ class ShrubberyCreationForm : public Form
 
 		// Methodes
 		void executeAction() const;
+		static Form* clone(std::string& target);
 };
 
 #endif

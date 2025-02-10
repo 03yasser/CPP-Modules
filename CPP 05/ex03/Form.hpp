@@ -30,7 +30,7 @@ class Form
 		//Methodes
 		void			beSigned(Bureaucrat &b);
 		void			execute(const Bureaucrat& executor) const;
-		virtual void	executeAction() const = 0;  
+		virtual void	executeAction() const = 0;
 
 		//Exceptions
 		class GradeTooHighException : public std::exception

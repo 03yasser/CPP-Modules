@@ -48,3 +48,8 @@ void ShrubberyCreationForm::executeAction() const
     outFile.close();
     std::cout << "Shrubbery file created: " << target + "_shrubbery" << std::endl;
 }
+
+Form* ShrubberyCreationForm::clone(std::string& target)
+{
+    return (new ShrubberyCreationForm(target));
+}

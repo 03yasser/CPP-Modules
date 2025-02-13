@@ -1,14 +1,15 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
-
-#include <ctime>
 #include <cstdlib>
+#include <stdlib.h>
 
 #include "AForm.hpp"
 class RobotomyRequestForm : public AForm
 {
 	private :
 		std::string	target;
+		mutable int	state;
+
 
 	public :
 		// Orthodox Canonical Form

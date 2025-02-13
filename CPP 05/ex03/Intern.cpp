@@ -25,7 +25,7 @@ Intern& Intern::operator=(const Intern &other)
 Form *Intern::makeForm(std::string name, std::string target)
 {
     const std::string formNames[] = { "robotomy request","presidential pardon", "shrubbery creation" };
-    Form* (*formCreators[])(std::string&) = {
+Form* (*formCreators[])(std::string&) = {
         &RobotomyRequestForm::clone,
         &PresidentialPardonForm::clone,
         &ShrubberyCreationForm::clone 
@@ -36,7 +36,7 @@ Form *Intern::makeForm(std::string name, std::string target)
         if (name == formNames[i])
         {
             std::cout << "Intern creates " << name << std::endl;
-            return formCreators[i](target); // Calls the correct function
+            return formCreators[i](target);
         }
     }
 

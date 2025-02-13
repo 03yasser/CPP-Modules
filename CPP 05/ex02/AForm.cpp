@@ -3,7 +3,13 @@
 AForm::AForm(void) : name("deffault"), is_signed(false), grade_sign(0), grade_execute(0){}
 AForm::AForm(std::string _name, int Gsign, int Gexecute) :
 			name(_name), is_signed(false),
-			grade_sign(Gsign), grade_execute(Gexecute) {}
+			grade_sign(Gsign), grade_execute(Gexecute)
+{
+	if (grade_sign < 1 || grade_execute < 1)
+		throw GradeTooHighException();
+	if (grade_sign > 150 || grade_execute > 150)
+		throw GradeTooLowException();
+}
 
 AForm::AForm(const AForm &copy) : name(copy.name),
 								is_signed(copy.is_signed),
@@ -72,8 +78,8 @@ void AForm::execute(const Bureaucrat& executor) const
     if (!is_signed) {
         throw FormNotSignedException();
     }
-    if (executor.getGrade() > grade_execute) {
-        throw GradeTooLowException();
-    }
+	if (executor.getGrade() > grade_execute) {
+		throw GradeTooLowException();
+	} 
     executeAction();
 }

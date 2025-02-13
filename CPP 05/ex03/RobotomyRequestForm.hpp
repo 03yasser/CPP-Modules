@@ -8,7 +8,8 @@
 class RobotomyRequestForm : public Form
 {
 	private :
-		std::string	target;
+		std::string			target;
+		mutable int			state;
 
 	public :
 		// Orthodox Canonical Form
@@ -19,8 +20,8 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
 
 		// Methodes
-		void executeAction() const;
-		static Form* clone(std::string& target) ;
+		void			executeAction() const;
+		static Form*	clone(std::string& target) ;
 };
 
 #endif

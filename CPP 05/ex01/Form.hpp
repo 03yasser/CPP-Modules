@@ -32,18 +32,12 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char * what() const throw()
-				{
-					return ("Grade too high to sign the form!");
-				}
+				const char * what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char * what() const throw()
-				{
-					return ("Grade too low to sign the form!");
-				}
+				const char * what() const throw();
 		};
 };
 

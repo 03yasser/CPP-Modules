@@ -83,3 +83,19 @@ void Form::execute(const Bureaucrat& executor) const
     }
     executeAction();
 }
+
+// Exceptions
+const char * Form::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too high");
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low");
+}
+
+const char * Form::FormNotSignedException::what() const throw()
+{
+	return ("Form is not signed");
+}

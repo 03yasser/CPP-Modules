@@ -1,12 +1,13 @@
-#include "Base.h"
+#include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
 
+
 Base*	generate(void)
 {
-	int num = rand();
-	std::cout << "num: " << num << std::endl;
+	int num = std::rand(); 
+	// std::cout << "num: " << num % 3 << std::endl;
 	
 	if (num % 3 == 0)
 		return (new A());
@@ -15,23 +16,49 @@ Base*	generate(void)
 	return (new C());
 }
 
+void identify(Base* p)
+{
+    if (dynamic_cast<A*>(p))
+        std::cout << "A" << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << "B" << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << "C" << std::endl;
+    else
+        std::cout << "Unknown type" << std::endl;
+}
+
+void identify(Base& p)
+{
+    try {
+        (void)dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        return;
+    } catch (...) {}
+
+    try {
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return;
+    } catch (...) {}
+
+    try {
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return;
+    } catch (...) {}
+
+    std::cout << "Unknown type" << std::endl;
+}
+
+
 int main()
 {
+	std::srand(time(0)); 
     Base* base = generate();
     
-    std::cout << "Base: " << base << std::endl;
-    
-    A* a = dynamic_cast<A*>(base);
-    if (a)
-        std::cout << "A: " << a << std::endl;
-    
-    B* b = dynamic_cast<B*>(base);
-    if (b)
-        std::cout << "B: " << b << std::endl;
-    
-    C* c = dynamic_cast<C*>(base);
-    if (c)
-        std::cout << "C: " << c << std::endl;
+    identify(base);
+	identify(*base);
     
     delete base;
     

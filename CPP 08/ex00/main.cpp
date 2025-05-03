@@ -24,10 +24,9 @@ int main()
         std::cout << "Found in vector: " << easyfind(vec, 3) << std::endl;
         std::cout << "Found in list: " << easyfind(lst, 3) << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
     return 0;
 }

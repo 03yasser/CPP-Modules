@@ -21,7 +21,7 @@ int main()
 
     try
     {
-        std::cout << "Found in vector: " << easyfind(vec, 3) << std::endl;
+        std::cout << "Found in vector: " << easyfind(vec, 1) << std::endl;
         std::cout << "Found in list: " << easyfind(lst, 3) << std::endl;
     }
     catch (std::exception &e)

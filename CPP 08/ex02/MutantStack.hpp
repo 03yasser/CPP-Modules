@@ -33,7 +33,15 @@ class MutantStack : public std::stack<T>
 		iterator end(void)
 		{
 			return (this->c.end());
-			}
+		}
+		reverse_iterator rbegin(void)
+		{
+			return (this->c.rbegin());
+		}
+		reverse_iterator rend(void)
+		{
+			return (this->c.rend());
+		}
 		
 };
 

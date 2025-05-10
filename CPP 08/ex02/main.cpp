@@ -3,7 +3,6 @@
 
 int main()
 {
-    // Test with MutantStack
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
@@ -13,7 +12,7 @@ int main()
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
-    //[...]
+
     mstack.push(0);
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
@@ -26,7 +25,6 @@ int main()
     }
     std::stack<int> s(mstack);
 
-    // Test with std::list
     std::list<int> lst;
     lst.push_back(5);
     lst.push_back(17);
@@ -36,7 +34,7 @@ int main()
     lst.push_back(3);
     lst.push_back(5);
     lst.push_back(737);
-    //[...]
+
     lst.push_back(0);
     std::list<int>::iterator lit = lst.begin();
     std::list<int>::iterator lite = lst.end();

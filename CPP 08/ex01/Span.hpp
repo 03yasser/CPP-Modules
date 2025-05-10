@@ -21,8 +21,8 @@ class Span
 
 		// Member functions
 		void addNumber(int n);
-		int shortestSpan(void);
-		int longestSpan(void);
+		unsigned int shortestSpan(void);
+		unsigned int longestSpan(void);
 		void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 };

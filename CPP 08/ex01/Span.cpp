@@ -45,7 +45,7 @@ void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterat
     V.insert(V.end(), begin, end);
 }
 
-int Span::shortestSpan(void)
+unsigned int Span::shortestSpan(void)
 {
 	int tmp;
 
@@ -63,7 +63,7 @@ int Span::shortestSpan(void)
 	return min;
 }
 
-int Span::longestSpan(void)
+unsigned int Span::longestSpan(void)
 {
 	if (V.size() < 2)
 		throw std::out_of_range("Not enough numbers");

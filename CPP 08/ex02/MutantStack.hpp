@@ -45,5 +45,4 @@ class MutantStack : public std::stack<T>
 		
 };
 
-
 #endif

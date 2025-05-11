@@ -9,6 +9,7 @@ class MutantStack : public std::stack<T>
 {
 	public :
 		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 
 		
 		MutantStack(void) : std::stack<T>() {}

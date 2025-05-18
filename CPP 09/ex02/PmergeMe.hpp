@@ -2,14 +2,12 @@
 # define PMERGEME_HPP
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <ctime>
 #include <deque>
 #include <exception>
 #include <iomanip>
 #include <sstream>
-
-
+#include <algorithm> 
 
 class PmergeMe
 {
@@ -26,6 +24,9 @@ class PmergeMe
 		void printBefore(void);
 		void run(void);
 		void sortVector(void);
+		void sortDeque(void);
+		bool is_sorted(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
 };
 
 #endif

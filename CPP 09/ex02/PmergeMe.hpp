@@ -7,6 +7,8 @@
 #include <deque>
 #include <exception>
 #include <iomanip>
+#include <sstream>
+
 
 
 class PmergeMe
@@ -23,10 +25,7 @@ class PmergeMe
 		void checkInput(int ac, char **av);
 		void printBefore(void);
 		void run(void);
-		void insertionSortVector(std::vector<int> &vec, int left, int right);
-		void insertionSortDeque(std::deque<int> &deq, int left, int right);		
-		void mergeinsortvector(std::vector<int> &vec, int left, int right);
-		void mergeinsortdeque(std::deque<int> &deq, int left, int right);
+		void sortVector(void);
 };
 
 #endif

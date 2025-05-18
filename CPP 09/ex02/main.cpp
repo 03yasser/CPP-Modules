@@ -7,9 +7,7 @@ int main(int ac, char **av)
     try
     {
         pm.checkInput(ac, av);
-        pm.printBefore();
         pm.run();
-
     }
     catch (const std::exception &e)
     {

@@ -8,9 +8,9 @@ int main(int argc, char **argv)
         std::cerr << "Error: Wrong number of arguments" << std::endl;
         return (1);
     }
-    RPN rpn(argv[1]);
     try
     {
+        RPN rpn(argv[1]);
         rpn.calculate();
     }
     catch (const std::exception &e)

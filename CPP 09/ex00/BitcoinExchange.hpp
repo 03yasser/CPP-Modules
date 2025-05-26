@@ -6,6 +6,8 @@
 #include <map>
 #include <cstdlib>
 #include <iterator>
+#include <string>
+#include <iomanip>
 
 class BitcoinExchange
 {

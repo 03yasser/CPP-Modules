@@ -1,7 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <string>
-
-
 
 
 BitcoinExchange::BitcoinExchange(void) {}
@@ -14,6 +11,12 @@ BitcoinExchange::BitcoinExchange(std::string const &filename, const std::string 
 		throw std::runtime_error("Error: could not open file");
 	std::string line;
 	std::getline(file, line);
+	if (line != "date | value")
+	{
+		std::cerr << "Error: bad input => " << line << std::endl;
+		file.close();
+		return;
+	}
 	while (!file.eof())
 	{
 		getline(file, line);
@@ -28,8 +31,7 @@ BitcoinExchange::BitcoinExchange(std::string const &filename, const std::string 
 			if (it == data.end() || it->first != date)
 				--it;
 		}
-
-		std::cout << date << " => " << val << " = " << it->second * val << std::endl;
+		std::cout << date << " => " << val << " = " << std::fixed << std::setprecision(2) << (it->second * val) << std::endl;
 	}
 	file.close();
 
@@ -71,19 +73,35 @@ int BitcoinExchange::parseInput(const std::string &line)
 {
 	if (line.empty())
 		return 1;
+
+	
 	size_t pos = line.find('|');
 	if (pos == std::string::npos)
 	{
 		std::cerr << "Error: bad input => " << line << std::endl;
 		return 1;
 	}
+	if (pos == 0 || pos == line.size() - 1 || line[pos - 1] != ' ' || line[pos + 1] != ' ')
+	{
+		std::cerr << "Error: bad input => " << line << std::endl;
+		return 1;
+	}
+
 	date = line.substr(0, pos - 1);
 	value = line.substr(pos + 2);
-
+	// std::cout << "date: |" << date << "|" << ", value: |" << value <<"|" << std::endl;
 	if (date.empty() || value.empty())
 		return 1;
 	if (validateDate(date))
 		return 1;
+	for (size_t i = 0; i < value.size(); i++)
+	{
+		if (!isdigit(value[i]) && value[i] != '.')
+		{
+			std::cerr << "Error: bad input => " << line << std::endl;
+			return 1;
+		}
+	}
 	val = std::strtof(value.c_str(), NULL);
 	if (validateValue())
 		return 1;
@@ -120,6 +138,16 @@ int BitcoinExchange::validateDate(const std::string &date)
 			std::cerr << "Error: bad input => " << date << std::endl;
 			return 1;
 		}
+	}
+	int year = 0, month = 0, day = 0;
+	for (int i = 0; i < 4; i++)
+		year = year * 10 + (date[i] - '0');
+	month = (date[5] - '0') * 10 + (date[6] - '0');
+	day = (date[8] - '0') * 10 + (date[9] - '0');
+	if (month < 1 || month > 12 || day < 1 || day > 31 || year > 2025)
+	{
+		std::cerr << "Error: bad input => " << date << std::endl;
+		return 1;
 	}
 	return 0;
 }

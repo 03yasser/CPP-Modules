@@ -2,7 +2,11 @@
 
 RPN::RPN(void) {}
 
-RPN::RPN(std::string input) : input(input) {}
+RPN::RPN(std::string input) : input(input)
+{
+	if (input.empty())
+		throw std::runtime_error("Empty input");
+}
 
 RPN::RPN(const RPN &copy)
 {
@@ -39,7 +43,7 @@ void RPN::calculate()
 		else if (isOperand(input[i]))
 		{
 			if (numbers.size() < 2)
-				throw std::runtime_error("Error: Not enough operands");
+				throw std::runtime_error("Not enough operands");
 			b = numbers.top();
 			numbers.pop();
 			a = numbers.top();
@@ -57,13 +61,14 @@ void RPN::calculate()
 					break;
 				case '/':
 					if (b == 0)
-						throw std::runtime_error("Error: Division by zero");
+						throw std::runtime_error("Division by zero");
 					numbers.push(a / b);
 					break;
 			}
 		}
 		else
-			throw std::runtime_error("Error:");
+			throw std::runtime_error("Invalid character");
 	}
-	std::cout << numbers.top() << std::endl;
+	if (numbers.size() != 0)
+		std::cout << numbers.top() << std::endl;
 }

@@ -32,10 +32,16 @@ bool PmergeMe::is_sorted(std::vector<int>::iterator begin, std::vector<int>::ite
 void PmergeMe::printBefore(void)
 {
 	std::cout << "Before: ";
-	for (int i = 0; i < static_cast<int>(vec.size()); ++i)
+	int max_display = 4;
+	
+	for (int i = 0; i < static_cast<int>(vec.size()) && i < max_display; ++i)
 	{
 		std::cout << vec[i] << " ";
 	}
+	
+	if (static_cast<int>(vec.size()) > max_display)
+		std::cout << "[...]";
+	
 	std::cout << std::endl;
 }
 
@@ -85,7 +91,6 @@ void PmergeMe::run(void)
 	double duration;
     clock_t vec_start, vec_end, deq_start, deq_end;
 	
-	std::cout << "Before: ";
 	printBefore();
 
 	vec_start = clock();
@@ -95,21 +100,24 @@ void PmergeMe::run(void)
 	sortDeque();
 	deq_end = clock();
     std::cout << "After: ";
-    for (size_t i = 0; i < vec.size(); ++i)
+    int max_display = 4;
+    for (size_t i = 0; i < vec.size() && i < static_cast<size_t>(max_display); ++i)
 	{
         std::cout << vec[i] << " ";
     }
+    if (static_cast<int>(vec.size()) > max_display)
+        std::cout << "[...]";
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << vec.size();
     std::cout << " elements with std::vector<> : ";
-    duration = static_cast<double>(vec_end - vec_start) / CLOCKS_PER_SEC;
+    duration = static_cast<double>(vec_end - vec_start) / CLOCKS_PER_SEC * 1000000;
     std::cout << std::fixed << std::setprecision(5) << duration << " us";
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << deq.size();
     std::cout << " elements with std::deque<>  : ";
-    duration = static_cast<double>(deq_end - deq_start) / CLOCKS_PER_SEC;
+    duration = static_cast<double>(deq_end - deq_start) / CLOCKS_PER_SEC * 1000000;
     std::cout << std::fixed << std::setprecision(5) << duration << " us";
     std::cout << std::endl;
 
@@ -178,12 +186,6 @@ void PmergeMe::sortVector(void)
 			pendVec.push_back(vecPairs[i + 1].second);
 		}
 	}
-	std::cout << "pend: ";
-	for (size_t i = 0; i < pendVec.size(); ++i)
-	{
-		std::cout << pendVec[i] << " ";
-	}
-	std::cout << std::endl;
 	mainVec.reserve(size + 1);
 	jacobsthal(jacobsthalVec, pendVec.size());
 	size_t Jacob_index = 0;

@@ -69,6 +69,8 @@ void RPN::calculate()
 		else
 			throw std::runtime_error("Invalid character");
 	}
+	if (!isOperand(input[input.length() - 1]))
+		throw std::runtime_error("Expression must end with an operator");
 	if (numbers.size() != 0)
 		std::cout << numbers.top() << std::endl;
 }

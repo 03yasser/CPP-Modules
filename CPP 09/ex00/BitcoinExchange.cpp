@@ -31,7 +31,7 @@ BitcoinExchange::BitcoinExchange(std::string const &filename, const std::string 
 			if (it == data.end() || it->first != date)
 				--it;
 		}
-		std::cout << date << " => " << val << " = " << std::fixed << std::setprecision(2) << (it->second * val) << std::endl;
+		std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << (it->second * val) << std::endl;
 	}
 	file.close();
 
@@ -74,7 +74,7 @@ int BitcoinExchange::parseInput(const std::string &line)
 	if (line.empty())
 		return 1;
 
-	
+	int decimalpoint = 0;
 	size_t pos = line.find('|');
 	if (pos == std::string::npos)
 	{
@@ -94,13 +94,33 @@ int BitcoinExchange::parseInput(const std::string &line)
 		return 1;
 	if (validateDate(date))
 		return 1;
-	for (size_t i = 0; i < value.size(); i++)
+	size_t i = 0;
+	while(value[i] == ' ' && i < value.size())
+		i++;
+	if(value[0] == '-' || value[0] == '+')
+		i++;
+	for ( ; i < value.size(); i++)
 	{
-		if (!isdigit(value[i]) && value[i] != '.')
+		if (value[i] == '.' && i == value.size() - 1)
+		{
+			std::cerr << "Error: bad input => " << value << std::endl;
+			return 1;
+		}
+		if (value[i] == '.')
+		{
+			++decimalpoint;
+			continue;
+		}
+		if (!isdigit(value[i]))
 		{
 			std::cerr << "Error: bad input => " << line << std::endl;
 			return 1;
 		}
+	}
+	if (decimalpoint > 1)
+	{
+		std::cerr << "Error: bad input => " << value << std::endl;
+		return 1;
 	}
 	val = std::strtof(value.c_str(), NULL);
 	if (validateValue())

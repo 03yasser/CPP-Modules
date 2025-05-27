@@ -32,7 +32,7 @@ bool PmergeMe::is_sorted(std::vector<int>::iterator begin, std::vector<int>::ite
 void PmergeMe::printBefore(void)
 {
 	std::cout << "Before: ";
-	int max_display = 4;
+	int max_display = 6;
 	
 	for (int i = 0; i < static_cast<int>(vec.size()) && i < max_display; ++i)
 	{
@@ -100,7 +100,7 @@ void PmergeMe::run(void)
 	sortDeque();
 	deq_end = clock();
     std::cout << "After: ";
-    int max_display = 4;
+    int max_display = 6;
     for (size_t i = 0; i < vec.size() && i < static_cast<size_t>(max_display); ++i)
 	{
         std::cout << vec[i] << " ";
@@ -111,13 +111,13 @@ void PmergeMe::run(void)
 
     std::cout << "Time to process a range of " << vec.size();
     std::cout << " elements with std::vector<> : ";
-    duration = static_cast<double>(vec_end - vec_start) / CLOCKS_PER_SEC * 1000000;
+    duration = static_cast<double>(vec_end - vec_start) / CLOCKS_PER_SEC;
     std::cout << std::fixed << std::setprecision(5) << duration << " us";
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << deq.size();
     std::cout << " elements with std::deque<>  : ";
-    duration = static_cast<double>(deq_end - deq_start) / CLOCKS_PER_SEC * 1000000;
+    duration = static_cast<double>(deq_end - deq_start) / CLOCKS_PER_SEC;
     std::cout << std::fixed << std::setprecision(5) << duration << " us";
     std::cout << std::endl;
 

@@ -32,15 +32,11 @@ bool PmergeMe::is_sorted(std::vector<int>::iterator begin, std::vector<int>::ite
 void PmergeMe::printBefore(void)
 {
 	std::cout << "Before: ";
-	int max_display = 6;
 	
-	for (int i = 0; i < static_cast<int>(vec.size()) && i < max_display; ++i)
+	for (int i = 0; i < static_cast<int>(vec.size()); ++i)
 	{
 		std::cout << vec[i] << " ";
 	}
-	
-	if (static_cast<int>(vec.size()) > max_display)
-		std::cout << "[...]";
 	
 	std::cout << std::endl;
 }
@@ -100,13 +96,10 @@ void PmergeMe::run(void)
 	sortDeque();
 	deq_end = clock();
     std::cout << "After: ";
-    int max_display = 6;
-    for (size_t i = 0; i < vec.size() && i < static_cast<size_t>(max_display); ++i)
+    for (size_t i = 0; i < vec.size(); ++i)
 	{
         std::cout << vec[i] << " ";
     }
-    if (static_cast<int>(vec.size()) > max_display)
-        std::cout << "[...]";
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << vec.size();

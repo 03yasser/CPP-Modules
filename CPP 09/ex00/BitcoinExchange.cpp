@@ -13,7 +13,7 @@ BitcoinExchange::BitcoinExchange(std::string const &filename, const std::string 
 	std::getline(file, line);
 	if (line != "date | value")
 	{
-		std::cerr << "Error: bad input => " << line << std::endl;
+		std::cerr << "Error: date | value" << line << std::endl;
 		file.close();
 		return;
 	}
@@ -63,7 +63,7 @@ void BitcoinExchange::loadData(const std::string &database)
 		getline(file, line);
 		if (parseData(line))
 			continue;
-		val = std::strtof(value.c_str(), NULL);
+		val = std::strtod(value.c_str(), NULL);
 		data[date] = val;
 	}
 	file.close();
@@ -90,8 +90,18 @@ int BitcoinExchange::parseInput(const std::string &line)
 	date = line.substr(0, pos - 1);
 	value = line.substr(pos + 2);
 	// std::cout << "date: |" << date << "|" << ", value: |" << value <<"|" << std::endl;
-	if (date.empty() || value.empty())
+	// check if value empty also for spaces
+	int tmp = 0;
+	for (size_t i = 0; i < value.size(); i++)
+	{
+		if (value[i] == ' ')
+			tmp++;
+	}
+	if (date.empty() || value.empty() || (tmp == static_cast<int>(value.size())))
+	{
+		std::cerr << "Error: bad input => " << line << std::endl;
 		return 1;
+	}
 	if (validateDate(date))
 		return 1;
 	size_t i = 0;
@@ -122,7 +132,7 @@ int BitcoinExchange::parseInput(const std::string &line)
 		std::cerr << "Error: bad input => " << value << std::endl;
 		return 1;
 	}
-	val = std::strtof(value.c_str(), NULL);
+	val = std::strtod(value.c_str(), NULL);
 	if (validateValue())
 		return 1;
 	return 0;
@@ -168,6 +178,19 @@ int BitcoinExchange::validateDate(const std::string &date)
 	{
 		std::cerr << "Error: bad input => " << date << std::endl;
 		return 1;
+	}
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+	{
+		std::cerr << "Error: bad input => " << date << std::endl;
+		return 1;
+	}
+	if (month == 2)
+	{
+		if (day > 29 || (day == 29 && year % 4 != 0))
+		{
+			std::cerr << "Error: bad input => " << date << std::endl;
+			return 1;
+		}
 	}
 	return 0;
 }
